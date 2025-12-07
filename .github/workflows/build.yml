@@ -99,7 +99,7 @@ jobs:
         if: ${{ env.SIGNING_KEY != '' }}
         uses: actions/upload-artifact@v5
         with:
-          name: APatch
+          name: SalsaPatch
           path: ${{steps.sign_app.outputs.signedReleaseFile}}
 
       - name: Post to channel
