@@ -3,7 +3,7 @@ name: Build Manager
 on:
   push:
     tags: [ "*" ]
-    branches: [ "main" ]
+    branches: [ "testing" ]
     paths:
       - '.github/workflows/build.yml'
       - 'app/**'
@@ -11,7 +11,7 @@ on:
       - 'build.gradle.kts'
       - 'gradle/libs.versions.toml'
   pull_request:
-    branches: [ "main" ]
+    branches: [ "testing" ]
     paths:
       - '.github/workflows/build.yml'
       - 'app/**'
@@ -99,7 +99,7 @@ jobs:
         if: ${{ env.SIGNING_KEY != '' }}
         uses: actions/upload-artifact@v5
         with:
-          name: APatch
+          name: Salsa-Patch
           path: ${{steps.sign_app.outputs.signedReleaseFile}}
 
       - name: Post to channel
